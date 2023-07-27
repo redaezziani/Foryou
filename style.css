@@ -1,0 +1,152 @@
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: inter;
+    src: url(./Inter-Regular.otf);
+}
+
+:root{
+
+    --primary-violet:#6238e2;
+    --bkg-violet-light:#ffffff;
+    --gray:#d5d4d5;
+    --bkg-color:#2c2c2c;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(-190deg , #18042d,#000000ea );
+    scroll-behavior: smooth;
+}
+body::before{
+    content: '';
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #713cf72d;
+    filter: blur(200px);
+    position: absolute;
+    left: -100px;
+    top: -80px;
+    z-index: 0;
+}
+body::after{
+    content: '';
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #713cf72d;
+    filter: blur(200px);
+    position: absolute;
+    right: -100px;
+    bottom: 80px;
+    z-index: 0;
+}
+.accordion-container{
+    margin: 0 auto;
+    min-width: 330px;
+    z-index: 2;
+}
+.main-item{
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    cursor: pointer;
+    background: white;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease-in-out .25s;
+    font-size: 1rem;
+}
+.main-item .strat{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: start;
+}
+.main-item:hover{
+    background-color: var(--bkg-violet-light);
+    color: var(--primary-violet);
+}
+.main-item i{
+    color: var(--bkg-color);
+    transition: all ease-in-out .25s;
+}
+.main-item:hover i{
+    color: var(--primary-violet);
+}
+
+.main-item--open{
+    border-radius: 8px 8px 0px 0px;
+    background-color: var(--primary-violet);
+    transition: all 200ms;
+    color: white;
+}
+.main-item--open:hover{
+    color: white;
+    border-radius: 8px 8px 0px 0px;
+    background-color: var(--primary-violet);
+}
+.main-item--open i{
+    color: white;
+}
+.main-item--open:hover i{
+    color: white;
+}
+.accordion-container > ul{
+    max-height: 0px;
+    background-color: var(--bkg-color);
+    list-style-type: none;
+    padding-left: 14px;
+    opacity: 0;
+    background-color: var(--bkg-violet-light);
+    visibility: hidden;
+    transition: all ease-in-out .2s;
+}
+.main-item--open + ul{
+    visibility: visible;
+    max-height: 400px;
+    opacity: 1;
+    border-radius:  0px 0px 8px 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.accordion-container > ul > li{
+    height: 48px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.accordion-container > ul > li:hover{
+    transition: .3s ease-in all;
+    color: var(--primary-violet);
+    cursor: pointer;
+}
+.main-item--open > .expand-icon{
+    transform: rotate(90deg);
+}
+
+.My-Logo{
+    width: 60px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+.My-Logo img{
+    width: 100%;
+    opacity: .4;
+}
